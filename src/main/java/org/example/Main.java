@@ -1,9 +1,5 @@
 package org.example;
 
-import java.lang.annotation.Documented;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,13 +15,25 @@ public class Main {
 //        System.out.println(Arrays.toString(twoSum(nums, 7)));
 //        System.out.println(Arrays.toString(new int[]{maxProfit(nums)}));
 //        System.out.println(Arrays.toString(new int[]{maxSubArray(nums)}));
-        System.out.println(arrayStringsAreEqual(word1,word2));
+//        System.out.println(arrayStringsAreEqual(word1,word2));
 
         MultithreadingLearning learning=new MultithreadingLearning();
 
         Thread t=new Thread(learning);
         t.start();
         System.out.println("Fininsh main method "+ Thread.currentThread().getName());
+
+
+        MonitorLockExample obj=new MonitorLockExample();
+        MonitorThread1Runnable runnable=new MonitorThread1Runnable(obj);
+
+        Thread t1= new Thread(runnable);
+        Thread t2=new Thread(()->{obj.task2();});
+        Thread t3=new Thread(()->{obj.task3();});
+
+        t1.start();
+        t2.start();
+        t3.start();
     }
 
     public static int[] twoSum(int[] nums, int target) {
