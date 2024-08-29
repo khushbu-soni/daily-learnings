@@ -6,28 +6,30 @@ public class matrixDaigonalSum {
 
 
     public static void main(String[] args) {
-        int [][] mat= new int[][]{{1, 0}, {0,1}};
+        int [][] mat= new int[][]{{1,5},{7,3},{3,5}};
             int[] originalArray={2,2,3,4};
 //        int sum = daigonalSum(mat);
-        int mul = multiplicationsOfDaigonal(mat);
-        int[][] ints = construct2DArray(originalArray, 2, 2);
-        int[] ints1 = runnignSum1DArray(originalArray);
-        for (int i : ints1) {
-            System.out.println(i);
-        }
+//        int mul = multiplicationsOfDaigonal(mat);
+//        int[][] ints = construct2DArray(originalArray, 2, 2);
+//        int[] ints1 = runnignSum1DArray(originalArray);
+        int richestCustomer = findTheRichestCustomer(mat);
+//        for (int i : ints1) {
+//            System.out.println(i);
+//        }
 
 //        int speciaPositionBF = findSpeciaPositionBF(mat);
-        int speciaPosition = findSpeciaPosition(mat);
+//        int speciaPosition = findSpeciaPosition(mat);
 //        System.out.println("speciaPositionBF "+speciaPositionBF);
-        System.out.println("speciaPosition "+speciaPosition);
+//        System.out.println("speciaPosition "+speciaPosition);
+        System.out.println("richestCustomer "+richestCustomer);
 
 
-        for (int i=0;i<ints.length;i++){
-            for (int j=0;j<ints.length;j++)
-                System.out.println(ints[i][j]);
-        }
-//        System.out.println(sum);
-        System.out.println(mul);
+//        for (int i=0;i<ints.length;i++){
+//            for (int j=0;j<ints.length;j++)
+//                System.out.println(ints[i][j]);
+//        }
+////        System.out.println(sum);
+//        System.out.println(mul);
     }
 
     public static  int daigonalSum(int [][] mat){
@@ -161,5 +163,27 @@ public class matrixDaigonalSum {
             array[element]=sum;
         }
         return array;
+    }
+
+    public static int findTheRichestCustomer(int[][] customers){
+
+        int richestCustomer=0;
+        int customersCount = customers.length;
+        int[] customersWealth=new int[customersCount];
+        for(int customer=0;customer <customersCount ; customer++){
+
+            int customerWealth=0;
+
+            for(int account=0;account < customers[0].length;account++){
+
+                customerWealth+=customers[customer][account];
+            }
+
+            customersWealth[customer]=customerWealth;
+
+        }
+        richestCustomer = Arrays.stream(customersWealth).max().getAsInt();
+        return richestCustomer;
+
     }
 }
