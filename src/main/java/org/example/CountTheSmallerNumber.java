@@ -19,7 +19,7 @@ public class CountTheSmallerNumber {
     public static List<Integer> countTheSmallerNumber(int[] nums){
 
         List<Integer> resultList=new LinkedList<>();
-        List<Integer> sortedList=new ArrayList<>();
+        LinkedList<Integer> sortedList=new LinkedList<>();
 
         for( int i=nums.length-1;i>=0;i--){
             int index = insertViaMergeSort(sortedList, nums[i]);
@@ -30,7 +30,7 @@ public class CountTheSmallerNumber {
 
     }
 
-    public static int insertViaMergeSort(List<Integer> sortedList,int num){
+    public static int insertViaMergeSort(LinkedList<Integer> sortedList,int num){
 
         int low =0;
         int high=sortedList.size()-1;
@@ -43,7 +43,7 @@ public class CountTheSmallerNumber {
 
         if(num>sortedList.get(high)){
 
-            sortedList.add(num);
+            sortedList.addLast(num);
             return high+1;
         }
 
