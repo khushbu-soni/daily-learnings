@@ -15,36 +15,36 @@ public class SortColors {
 
     public static void main(String[] args) {
 
-        int num[]={1,1,1,0,0,2,2,0};
+        int num[] = {1, 1, 1, 0, 0, 2, 2, 0};
         sort(num);
         for (int i : num) {
-            System.out.print(i+" ,");
+            System.out.print(i + " ,");
 
         }
     }
 
-     public static  void sort(int[] nums){
+    public static void sort(int[] nums) {
 
-            int i=0;
-            int j=0;
-            int k=nums.length-1;
+        int i = 0;
+        int j = 0;
+        int k = nums.length - 1;
 
-            while (j<=k){
+        while (j <= k) {
 
 
-                if(nums[j]==1){
-                    j++;
-                } else if (nums[j]==2) {
-                    swap(nums,j,k);
-                    k--;
-                }else{
-                    swap(nums,j,i);
-                    i++;
-                    j++;
+            if (nums[j] == 1) {
+                j++;
+            } else if (nums[j] == 2) {
+                swap(nums, j, k);
+                k--;
+            } else {
+                swap(nums, j, i);
+                i++;
+                j++;
 
-                }
             }
-     }
+        }
+    }
 
     private static void swap(int[] nums, int a, int b) {
         int temp = nums[a];

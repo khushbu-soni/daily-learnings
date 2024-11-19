@@ -44,7 +44,7 @@ public class ThreeSum {
 
         while (start<end){
 
-            if(num[start]+num[end]>target) {
+            if(num[start]+num[end]> target) {
                 end--;
             }else if (num[start]+num[end] <target) {
                 start++;
