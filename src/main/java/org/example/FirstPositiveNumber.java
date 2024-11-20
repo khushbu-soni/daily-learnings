@@ -10,6 +10,7 @@ public class FirstPositiveNumber {
         System.out.println("firstPositiveNumberIndex "+firstPositiveNumberIndex);
     }
 
+
     /*
      * step 1. check if array contains 1 if yes than mark the containsFlag as true;
      * step 2 : check if number is negative or grater than n then mark the number as 1
