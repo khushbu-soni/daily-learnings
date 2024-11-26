@@ -20,8 +20,8 @@ public class IncreementSubmatricsByOne {
     public  static  int[][] createMatrix(int n,int[][] queries){
 
         int[][] mat=new int[n][n];
-        List<int[]> list = Arrays.asList(queries);
-        for (int[] ints : list) {
+
+        for (int[] ints : queries) {
             int startRow=ints[0];
             int startCol=ints[1];
             int endRow=ints[2];
