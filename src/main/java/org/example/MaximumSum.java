@@ -39,7 +39,7 @@ public class MaximumSum {
             return sum ;
 
         }
-        return sum- 2*smallestNumber;
+        return sum- 2L * smallestNumber;
     }
 
     private static int findSmallestNumber(int[][] nums) {
