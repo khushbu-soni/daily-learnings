@@ -33,8 +33,6 @@ public class WordSubset {
 
         }
 
-
-
         for (String s : words1) {
             HashMap<Character, Integer> words1MapFreq = buildFreqMap(s);
             if(isSubset(words1MapFreq,wordsTwoMaxFreq)){
