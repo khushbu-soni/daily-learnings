@@ -139,5 +139,9 @@ public class FindMinimumSumOfArray {
 
             return (int) result;
         }
+
+//        public static int findMiniSum(int[] arr){
+//
+//        }
     }
 

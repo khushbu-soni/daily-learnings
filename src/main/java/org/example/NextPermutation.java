@@ -1,6 +1,21 @@
 package org.example;
 
-import java.util.Arrays;
+/*
+* 1.	Iterate Through the Array to Find the Pivot:
+o	Traverse the array from the end (n−1n - 1n−1) to the beginning (000).
+o	Compare consecutive elements: if arr[i−1]<arr[i]arr[i - 1] < arr[i]arr[i−1]<arr[i], it indicates the position i−1i - 1i−1 (centerIndex) where a swap is needed to create the next permutation.
+o	Break the loop once the pivot (centerIndex) is found.
+2.	Find the Swap Index:
+o	Iterate through the array from the end (n−1n - 1n−1) to the pivot position.
+o	Find the smallest number greater than arr[centerIndex]arr[centerIndex]arr[centerIndex].
+o	This number's position becomes the swapIndex.
+3.	Swap the Center Value with the Swap Value:
+o	Swap the numbers at centerIndexcenterIndexcenterIndex and swapIndexswapIndexswapIndex.
+4.	Reverse the Array From centerIndex + 1 to the End:
+o	Reverse the portion of the array from centerIndex+1centerIndex + 1centerIndex+1 to n−1n - 1n−1.
+o	This step ensures the smallest lexicographical order for the remaining portion of the array.
+
+* */
 
 public class NextPermutation {
 
