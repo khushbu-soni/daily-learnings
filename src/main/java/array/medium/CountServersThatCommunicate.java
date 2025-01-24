@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class CountServersThatCommunicate {
 
     public static void main(String[] args) {
-        int[][] nums={{1,0},{1,1}};
+        int[][] nums={{1,1,1,0,0,1},{1,1,0,0,1,1},{0,0,0,0,0,0},{1,1,0,0,0,1}};
 
-        int num = countServersBetterApproch(nums);
+        int num = countServersBestApproch(nums);
         System.out.println(num);
     }
 
@@ -88,5 +88,48 @@ public class CountServersThatCommunicate {
         }
 
         return resultCounter;
+    }
+
+    public static int countServersBestApproch(int[][] grid){
+
+        int ansCount=0;
+
+        int m=grid.length;
+        int n=grid[0].length;
+
+        int[] colServerCount =new int[n];
+        int[] rowAloneServerCol =new int[m];
+        Arrays.fill(rowAloneServerCol,-1);
+
+        for (int row = 0; row <m ; row++) {
+            int countServerRow=0;
+            for (int col = 0; col <n ; col++) {
+                if (grid[row][col] == 1) {
+                    countServerRow++;
+                    colServerCount[col]++;
+                    rowAloneServerCol[row] = col;
+                }
+            }
+
+                if(countServerRow>1){
+                    ansCount+=countServerRow;
+                    rowAloneServerCol[row]=-1;
+                }
+
+
+        }
+
+//        check alone server in each row
+        for (int row = 0; row <m ; row++) {
+            if(rowAloneServerCol[row]!=-1){
+                int col=rowAloneServerCol[row];
+                if(colServerCount[col]>1)
+                    ansCount+=1;
+            }
+
+        }
+
+        return ansCount;
+
     }
 }
