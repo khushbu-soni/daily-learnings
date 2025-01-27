@@ -8,7 +8,7 @@ public class FourSum {
 
         int[] nums={1,0,-1,0,-2,2};
         int target=0;
-        List<List<Integer>> lists = FourSumOpt1(nums, target);
+        List<List<Integer>> lists = FourSumOpt2(nums, target);
        lists.stream().forEach(innerList -> System.out.println(innerList));
     }
 
@@ -38,6 +38,8 @@ public class FourSum {
         return new ArrayList<>(set);
     }
 
+//    this one is more optimized
+
     public static List<List<Integer>> FourSumOpt1(int [] nums,int target){
 
         HashSet<List<Integer>> set=new HashSet<>();
@@ -63,5 +65,49 @@ public class FourSum {
 
 
         return new ArrayList<>(set);
+    }
+
+    public static List<List<Integer>> FourSumOpt2(int [] nums,int target){
+
+        List<List<Integer>> listOfList= new ArrayList<>();
+
+        int size=nums.length;
+        Arrays.sort(nums);
+        if(size<4) return listOfList;
+        HashSet<Integer> hashSet= new HashSet<>();
+
+        for (int i = 0; i <size ; i++) {
+            if(i>0 && nums[i]==nums[i-1]) continue;
+
+            for (int j = i+1; j <size ; j++) {
+                if(j>0 && nums[j]==nums[j-1]) continue;
+
+                for (int k = j+1; k <size ; k++) {
+                    if(k>0 && nums[k]==nums[k-1]) continue;
+                    int sum=nums[i]+nums[j]+nums[k];
+                    int remaingNumber=target-sum;
+
+                    if(hashSet.contains(remaingNumber)){
+
+                        List<Integer> list=new ArrayList<>();
+                        list.add(nums[i]);
+                        list.add(nums[j]);
+                        list.add(nums[k]);
+                        list.add(remaingNumber);
+
+                         listOfList.add(list);
+                    }else{
+                        hashSet.add(remaingNumber);
+                    }
+                }
+
+
+            }
+
+
+        }
+
+        return listOfList;
+
     }
 }
